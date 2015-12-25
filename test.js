@@ -61,3 +61,11 @@ it('should ensure it works if I run it again', function(done) {
     done();
   });
 });
+
+it('should work if I pass exec options through', function(done) {
+  gitLatestSemverTag({cwd: __dirname}, function(err, tag) {
+    assert(tag);
+
+    done();
+  });
+});

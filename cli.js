@@ -3,14 +3,17 @@
 var meow = require('meow');
 var gitLatestSemverTag = require('./');
 
-meow({
+var cli = meow({
   help: [
     'Usage',
-    '  git-latest-semver-tag'
+    '  git-latest-semver-tag <optional-path>'
   ]
 });
 
-gitLatestSemverTag(function(err, tag) {
+var opts = {};
+opts.cwd = cli.input[0];
+
+gitLatestSemverTag(opts, function(err, tag) {
   if (err) {
     console.error(err.toString());
     process.exit(1);

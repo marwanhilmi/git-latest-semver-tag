@@ -4,9 +4,18 @@ var semverValid = require('semver').valid;
 var regex = /tag:\s*(.+?)[,\)]/gi;
 var cmd = 'git log --date-order --tags --simplify-by-decoration --pretty=format:"%d"';
 
-module.exports = function(callback) {
+module.exports = function(options, callback) {
+  if (typeof arguments[0] === 'function') {
+    options = {};
+    callback = arguments[0];
+  } else {
+    options = arguments[0];
+    callback = arguments[1];
+  }
+  // Setting a larger buffer since git log must be huge
+  options.maxBuffer = 10000000;
   regex.lastIndex = 0;
-  exec(cmd, function(err, data) {
+  exec(cmd, options, function(err, data) {
     if (err) {
       callback(err);
       return;
