@@ -1,13 +1,8 @@
 {
-  "name": "git-latest-semver-tag",
+  "name": "@counterplay/git-latest-semver-tag",
   "version": "2.0.0",
   "description": "Get the most recent git semver tag of your repository",
   "homepage": "https://github.com/marwanhilmi/git-latest-semver-tag",
-  "author": {
-    "name": "Steve Mao",
-    "email": "maochenyan@gmail.com",
-    "url": "https://github.com/stevemao"
-  },
   "repository": "marwanhilmi/git-latest-semver-tag",
   "license": "MIT",
   "files": [
